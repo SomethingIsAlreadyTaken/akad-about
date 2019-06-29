@@ -1,0 +1,41 @@
+$grid-gap: 15px;
+$columns: 12;
+
+.container {
+	max-width: 1140px;
+	width: 96%;
+	padding: $grid-gap;
+	margin: 0 auto;
+}
+
+.row {
+	margin: 0 -1 * $grid-gap;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	& + & {
+		margin-top: $grid-gap;
+	}
+}
+
+[class^="col-"] {
+	margin: 0 $grid-gap;
+	background-color: rgba(200,200,200, .3);
+
+}
+
+@mixin col-1-x {
+	@for $i from 1 through $columns {
+		.col-1-#{$i} {
+			background-color: rgba(200,200,200, .3);
+			width: calc(100% / #{$i} - (2 * #{$grid-gap}));
+			@media screen and (max-width: 768px) {
+				width: calc(100% - (2 * #{$grid-gap}));
+			}
+		}
+	}
+}
+
+@include col-1-x;
+

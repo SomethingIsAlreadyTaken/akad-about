@@ -1,0 +1,40 @@
+$grid-gap: 15px;
+$columns: 12;
+
+.container {
+	max-width: 1140px;
+	width: 96%;
+	padding: $grid-gap;
+	margin: 0 auto;
+}
+
+.row {
+	&:before,
+	&:after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+	& + & {
+		margin-top: $grid-gap;
+	}
+		margin: 0 -1 * $grid-gap;
+}
+
+[class^="col-"] {
+	float: left;
+	margin: 0 $grid-gap;
+
+}
+
+@mixin col-1-x {
+	@for $i from 1 through $columns {
+		.col-1-#{$i} {
+			background-color: rgba(200,200,200, .3);
+			width: calc(100% / #{$i} - (2 * #{$grid-gap}));
+		}
+	}
+}
+
+@include col-1-x;
+
