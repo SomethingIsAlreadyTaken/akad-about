@@ -21,14 +21,11 @@ $columns: 12;
 
 [class^="col-"] {
 	margin: 0 $grid-gap;
-	background-color: rgba(200,200,200, .3);
-
 }
 
 @mixin col-1-x {
 	@for $i from 1 through $columns {
 		.col-1-#{$i} {
-			background-color: rgba(200,200,200, .3);
 			width: calc(100% / #{$i} - (2 * #{$grid-gap}));
 			@media screen and (max-width: 768px) {
 				width: calc(100% - (2 * #{$grid-gap}));
